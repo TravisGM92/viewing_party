@@ -12,3 +12,9 @@
 //
 //= require rails-ujs
 //= require_tree .
+
+$(document).ready(
+
+  gsap.from('.card', { duration: 3, opacity: 0, delay: 0.25, stagger: .6, ease: 'elastic' })
+
+)

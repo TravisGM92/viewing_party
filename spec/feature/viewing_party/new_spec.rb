@@ -39,7 +39,7 @@ RSpec.describe 'viewing party page' do
         click_button 'Add Friend'
         visit "/discover"
         click_button "Discover Top 40 Movies"
-        within(first(".cards")) do
+        within(first(".card")) do
           click_link
         end
         expect(current_path).to eq("/movies/#{first_movie[:id]}")

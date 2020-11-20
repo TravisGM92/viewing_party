@@ -38,7 +38,7 @@ RSpec.describe 'movie show page' do
           visit "/discover"
           click_button "Discover Top 40 Movies"
 
-          within(first(".cards")) do
+          within(first(".card")) do
             click_link
           end
 
@@ -73,7 +73,7 @@ RSpec.describe 'movie show page' do
           visit "/discover"
           click_button "Discover Top 40 Movies"
 
-          within(first(".cards")) do
+          within(first(".card")) do
             click_link
           end
           expect(page).to have_content("Reviews: #{first_movie_reviews[:total_results]}")

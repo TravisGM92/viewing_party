@@ -17,7 +17,7 @@ RSpec.describe 'movie discover page' do
         visit "/discover"
         click_button "Discover Top 40 Movies"
         # save_and_open_page
-        within(first('.cards'))
+        within(first('.card'))
           within('.card-front')
             within('.card-inner')
               expect(page).to have_link("Gabriel's Inferno")
@@ -34,7 +34,7 @@ RSpec.describe 'movie discover page' do
           expect(page).to have_field("Search")
           expect(page).to have_link("Gabriel's Inferno")
           # save_and_open_page
-          within(first(".card-back")) do
+          within(first(".card-info")) do
             expect(page).to have_content("Vote average:")
         end
       end
@@ -50,7 +50,7 @@ RSpec.describe 'movie discover page' do
         fill_in :search, with: 'Pirates'
         click_button 'Search'
 
-        within(first(".card-back")) do
+        within(first(".card-info")) do
           expect(page).to have_content("Vote average:")
         end
       end
@@ -65,11 +65,11 @@ RSpec.describe 'movie discover page' do
 
         click_button "Discover Current Popular Movies"
 
-        within(first('.cards'))
+        within(first('.card'))
         within('.card-front')
         within('.card-inner')
           expect(page).to have_link()
-        within(first(".card-back")) do
+        within(first(".card-info")) do
           expect(page).to have_content("Vote average:")
         end
       end
