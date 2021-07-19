@@ -14,7 +14,7 @@ RSpec.describe 'MovieStats runtime calculation' do
              release_date: '2020-10-01',
              runtime: 148
               }
-    movie = CreateMovie.new(attr)
+    movie = Movie.new(attr)
     expect(MovieStats.calculate_time(movie)).to eq("2 hours and 28 minutes")
   end
 end

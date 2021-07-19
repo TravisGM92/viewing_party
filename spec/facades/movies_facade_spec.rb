@@ -12,7 +12,7 @@ RSpec.describe 'Movie Facade' do
     movies = MoviesFacade.search_movies(keyword)
 
     expect(movies).to be_an(Array)
-    expect(movies.first).to be_a(CreateMovie)
+    expect(movies.first).to be_a(Movie)
     expect(movies.first.title).to be_a(String)
   end
 
@@ -27,7 +27,7 @@ RSpec.describe 'Movie Facade' do
     movies = MoviesFacade.get_list_movies(movie_count)
 
     expect(movies).to be_an(Array)
-    expect(movies.first).to be_a(CreateMovie)
+    expect(movies.first).to be_a(Movie)
     expect(movies.first.title).to be_a(String)
   end
 
@@ -51,7 +51,7 @@ RSpec.describe 'Movie Facade' do
 
     movie = MoviesFacade.get_specific_movie(first_movie[:id])
 
-    expect(movie).to be_a(CreateMovie)
+    expect(movie).to be_a(Movie)
     expect(movie.title).to be_a(String)
   end
 
@@ -68,7 +68,7 @@ RSpec.describe 'Movie Facade' do
     movies = MoviesFacade.get_current_popular(movie_count)
 
     expect(movies).to be_an(Array)
-    expect(movies.first).to be_a(CreateMovie)
+    expect(movies.first).to be_a(Movie)
     expect(movies.first.title).to be_a(String)
   end
 
@@ -118,9 +118,9 @@ RSpec.describe 'Movie Facade' do
     expect(movie_info).to have_key :cast
     expect(movie_info).to have_key :recommendations
     expect(movie_info).to have_key :reviews
-    expect(movie_info[:movie]).to be_a(CreateMovie)
+    expect(movie_info[:movie]).to be_a(Movie)
     expect(movie_info[:runtime]).to be_a(String)
-    expect(movie_info[:cast][0]).to be_a(CreateActor)
+    expect(movie_info[:cast][0]).to be_a(Actor)
     expect(movie_info[:runtime]).to be_a(String)
   end
 end

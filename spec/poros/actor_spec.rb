@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CreateActor do
+RSpec.describe Actor do
   it 'exists' do
     attr = { cast_id: 12,
                 character: 'Spiderman',
@@ -11,8 +11,8 @@ RSpec.describe CreateActor do
                 profile_path: 'profile_path'
               }
 
-      actor = CreateActor.new(attr)
-      expect(actor).to be_a(CreateActor)
+      actor = Actor.new(attr)
+      expect(actor).to be_a(Actor)
       expect(actor.character).to eq('Spiderman')
       expect(actor.name).to eq('Tobey Maguire')
   end

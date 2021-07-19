@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CreateMovie do
+RSpec.describe Movie do
   it 'exists' do
     attr = { popularity: 29,
                 vote_count: 10,
@@ -14,8 +14,8 @@ RSpec.describe CreateMovie do
                 release_date: '2020-10-01'
               }
 
-      movie = CreateMovie.new(attr)
-      expect(movie).to be_a(CreateMovie)
+      movie = Movie.new(attr)
+      expect(movie).to be_a(Movie)
       expect(movie.title).to eq('The Dogs')
       expect(movie.overview).to eq('Great Movie')
   end

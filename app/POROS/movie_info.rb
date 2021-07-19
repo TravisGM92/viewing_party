@@ -1,4 +1,4 @@
-class HashInfo
+class MovieInfo
   def self.convert(movie, runtime, cast, recommendations, reviews)
     {
       movie: movie,

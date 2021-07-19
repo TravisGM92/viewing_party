@@ -1,4 +1,4 @@
-class CreateRecommendation
+class Recommendation
   attr_reader :id,
               :title
 

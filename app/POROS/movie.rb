@@ -1,4 +1,4 @@
-class CreateMovie
+class Movie
   attr_reader :vote_count,
               :id,
               :genres,

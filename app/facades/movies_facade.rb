@@ -1,40 +1,31 @@
 class MoviesFacade
   def self.get_info(id)
     movie = get_specific_movie(id)
-    runtime = MovieStats.calculate_time(movie)
-    cast = find_cast(id)
-    recommendations = find_recommendations(id)
-    reviews = find_reviews(id)
-    HashInfo.convert(movie, runtime, cast, recommendations, reviews)
+    MovieInfo.convert(movie, MovieStats.calculate_time(movie), find_cast(id), find_recommendations(id), find_reviews(id))
   end
 
   def self.search_movies(keyword)
-    results = MovieService.search_movies(keyword)
-    create_movie_objs(results)
+    create_movie_objs(MovieService.search_movies(keyword))
   end
 
-  def self.create_movie_objs(results)
-    array = []
+  def self.create_movie_objs(results, movies=[])
     results.map do |data|
-      array << CreateMovie.new(data)
+      movies << Movie.new(data)
     end
-    array
+    movies
   end
 
   def self.get_list_movies(movie_count)
-    movie_results = MovieService.get_40_movies(movie_count)
-    create_movie_objs(movie_results)
+    create_movie_objs(MovieService.get_40_movies(movie_count))
   end
 
   def self.get_specific_movie(id)
-    movie = MovieService.get_specific_movie(id)
-    CreateMovie.new(movie)
+    Movie.new(MovieService.get_specific_movie(id))
   end
 
   def self.find_cast(id)
-    result = MovieService.find_cast(id)[:cast][0..9]
-    result.map do |member|
-      CreateActor.new(member)
+    MovieService.find_cast(id)[:cast][0..9].map do |member|
+      Actor.new(member)
     end
   end
 
@@ -43,20 +34,18 @@ class MoviesFacade
     return [] if result[:total_results] == []
 
     result[:results].map do |review|
-      CreateReview.new(review)
+      Review.new(review)
     end
   end
 
   def self.find_recommendations(id)
-    result = MovieService.recommendations(id)
-    recommended = result[:results].map do |movie|
-      CreateRecommendation.new(movie)
+    recommended = MovieService.recommendations(id)[:results].map do |movie|
+      Recommendation.new(movie)
     end
     recommended[0..4]
   end
 
   def self.get_current_popular(movie_count)
-    movie_results = MovieService.popular(movie_count)
-    create_movie_objs(movie_results)
+    create_movie_objs(MovieService.popular(movie_count))
   end
 end

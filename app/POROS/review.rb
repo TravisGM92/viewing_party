@@ -1,4 +1,4 @@
-class CreateReview
+class Review
   attr_reader :author,
               :content,
               :id,

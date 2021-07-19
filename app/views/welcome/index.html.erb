@@ -1,19 +1,19 @@
 <body class="welcome-page">
   <div class="login-button">
     <% if current_user.nil? %>
-      <%= button_to "Login", "/login", :style => 'font-size: 20px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;', method: :get %>
+      <%= button_to "Login", "/login", :style => 'font-size: 40px;width:180px;height:100px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;', method: :get %>
    <% else %>
    <% end %>
   </div>
 
   <div class="register-button">
     <% if current_user.nil? %>
-      <%= button_to "Register", "/registration", :style => 'font-size: 20px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;', :id => "register-button", method: :get %>
+      <%= button_to "Register", "/registration", :style => 'font-size: 40px;width:180px;height:100px;background-color:rgb(236, 116, 173);border-radius:5px;box-shadow: 0 0 10px #a9a9a9;', :id => "register-button", method: :get %>
     <% else %>
     <% end %>
   </div>
 
-  <div class="container">
+  <div class="title">
       <div class="animation">
         <span class="first"><h3>Let's Make a </h3></span>
         <span class="oh">
@@ -23,10 +23,10 @@
   </div>
   <br>
 
-  <div class="text">
+  <div class="sub-title">
     <h2>Explore movies and create a viewing party event for you and your friends to watch a movie together!</h2>
     <br>
-      <img src="https://media.giphy.com/media/5xtDarIHieSzSJdmn0A/source.gif" alt="Funny dancing" class="home-page" id="home-page">
+      <img src="https://media.giphy.com/media/5xtDarIHieSzSJdmn0A/source.gif" alt="Funny dancing" class="home-page" id="home-page-gif">
   </div>
 
   <div class="about-link">

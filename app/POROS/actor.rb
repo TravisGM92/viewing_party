@@ -1,4 +1,4 @@
-class CreateActor
+class Actor
   attr_reader :cast_id,
               :character,
               :credit_id,
